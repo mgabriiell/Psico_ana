@@ -5,7 +5,7 @@ import Agendamento from "./views/pacientes/Agendamento";
 import Proprietario from "./views/proprietario/Proprietario";
 import LoginProprietario from "./views/proprietario/LoginProprietario";
 import Cancelar from "./views/proprietario/SubcomponentesProntuario/cancelar";
-import "./assets/app.css";
+import "./assets/App.css";
 import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
