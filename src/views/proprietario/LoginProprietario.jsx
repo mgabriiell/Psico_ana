@@ -8,13 +8,13 @@ export default function LoginProprietario({ onLogin, onCancelar }) {
   // Senha definida em .env para segurança
   const senhaCorreta = import.meta.env.VITE_SENHA_PROPRIETARIO || "minhaSenha123";
 
-  const handleLogin = () => {
-    if (senha === senhaCorreta) {
-      onLogin(true);
-    } else {
-      alert("Senha incorreta!");
-    }
-  };
+const handleLogin = () => {
+  if (senha === senhaCorreta) {
+    onLogin(); // apenas dispara login
+  } else {
+    alert("Senha incorreta!");
+  }
+};
 
   return (
     <div className="login-proprietario">

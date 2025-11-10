@@ -1,6 +1,6 @@
 // src/App.jsx
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, Link } from "react-router-dom";
 import Agendamento from "./views/pacientes/Agendamento";
 import Proprietario from "./views/proprietario/Proprietario";
 import LoginProprietario from "./views/proprietario/LoginProprietario";
@@ -9,103 +9,87 @@ import "./assets/App.css";
 import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
-  const [pagina, setPagina] = useState("inicio");
   const [acessoProprietario, setAcessoProprietario] = useState(false);
 
   const handleLogout = () => {
     setAcessoProprietario(false);
-    setPagina("inicio");
   };
 
   return (
     <ThemeProvider>
       <Router>
         <Routes>
-          {/* Rota principal */}
+          {/* Tela Inicial */}
           <Route
             path="/"
             element={
-              pagina === "inicio" ? (
-                <div className="tela-inicial-container">
-                  <div className="tela-inicial">
-                    <h1 className="tela-inicial-titulo">
-                      Luisa Nunes Psicologia
-                    </h1>
-                    <div className="tela-inicial-botoes">
-                      <button 
-                        className="tela-inicial-btn"
-                        onClick={() => setPagina("cliente")}
-                      >
-                        🗓️ Agendar Consulta (Cliente)
-                      </button>
-                      <button 
-                        className="tela-inicial-btn"
-                        onClick={() => setPagina("login")}
-                      >
-                        ⚙️ Painel do Psicólogo
-                      </button>
-                    </div>
+              <div className="tela-inicial-container">
+                <div className="tela-inicial">
+                  <h1 className="tela-inicial-titulo">Luisa Nunes Psicologia</h1>
+                  <div className="tela-inicial-botoes">
+                    <Link to="/agendamento" className="no-underline">
+                      <button className="tela-inicial-btn">🗓️ Agendar Consulta (Cliente)</button>
+                    </Link>
+                    <Link to="/login" className="no-underline">
+                      <button className="tela-inicial-btn">⚙️ Painel do Psicólogo</button>
+                    </Link>
                   </div>
                 </div>
-              ) : pagina === "cliente" ? (
-                <div className="container-generico">
-                 
-                  <Agendamento />
-                </div>
-              ) : pagina === "login" ? (
-                <div className="container-generico">
-                  <LoginProprietario
-                    onLogin={() => {
-                      setAcessoProprietario(true);
-                      setPagina("proprietario");
-                    }}
-                    onCancelar={() => setPagina("inicio")}
-                  />
-                </div>
-              ) : pagina === "proprietario" && acessoProprietario ? (
+              </div>
+            }
+          />
+
+          {/* Agendamento */}
+          <Route
+            path="/agendamento"
+            element={<div className="container-generico"><Agendamento /></div>}
+          />
+
+          {/* Login Proprietário */}
+         <Route
+        path="/login"
+        element={
+          acessoProprietario ? (
+            <Navigate to="/proprietario" replace />
+          ) : (
+            <div className="container-generico">
+              <LoginProprietario
+                onLogin={() => setAcessoProprietario(true)}
+                onCancelar={() => {}}
+              />
+            </div>
+          )
+        }
+      />
+
+          {/* Painel Proprietário - protegido */}
+          <Route
+            path="/proprietario"
+            element={
+              acessoProprietario ? (
                 <div className="container-generico">
                   <Proprietario onLogout={handleLogout} />
                 </div>
               ) : (
-                // Fallback para rotas não encontradas
-                <div className="tela-inicial-container">
-                  <div className="tela-inicial">
-                    <h1 className="tela-inicial-titulo">
-                      Página Não Encontrada
-                    </h1>
-                    <div className="tela-inicial-botoes">
-                      <button 
-                        className="tela-inicial-btn"
-                        onClick={() => setPagina("inicio")}
-                      >
-                        🏠 Voltar ao Início
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                <Navigate to="/login" replace />
               )
             }
           />
 
-          {/* Rota de cancelamento */}
+          {/* Cancelar */}
           <Route path="/cancelar" element={<Cancelar />} />
 
-          {/* Rota fallback para páginas não encontradas */}
+          {/* Fallback 404 */}
           <Route
             path="*"
             element={
               <div className="tela-inicial-container">
                 <div className="tela-inicial">
-                  <h1 className="tela-inicial-titulo">
-                    404 - Página Não Encontrada
-                  </h1>
+                  <h1 className="tela-inicial-titulo">404 - Página Não Encontrada</h1>
                   <div className="tela-inicial-botoes">
-                    <button 
-                      className="tela-inicial-btn"
-                      onClick={() => window.location.href = '/'}
-                    >
-                      🏠 Voltar ao Início
-                    </button>
+                    <Link to="/" className="no-underline">
+                      <button className="tela-inicial-btn">🏠 Voltar ao Início</button>
+                    </Link>
                   </div>
                 </div>
               </div>
