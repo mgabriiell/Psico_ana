@@ -1,0 +1,454 @@
+/* ==========================================
+  CONFIGURAÇÕES GLOBAIS
+  ==========================================
+*/
+:root {
+  /* Cores Principais (Psicologia/Saúde Mental) */
+  --color-brand-primary: #4a90e2; /* Azul Confiança */
+  --color-brand-secondary: #00bcd4; /* Ciano Calma */
+  --color-success: #4caf50; /* Verde */
+  --color-danger: #f44336; /* Vermelho */
+
+  /* Cores Neutras */
+  --color-bg-light: #f7f9fb; /* Fundo muito claro */
+  --color-bg-card: #ffffff; /* Fundo dos cards/elementos */
+  --color-text-main: #34495e; /* Texto principal (Azul escuro) */
+  --color-text-subtle: #7f8c8d; /* Subtítulos e labels */
+  --color-border-line: #e0e6ed; /* Bordas e divisores */
+
+  /* Sombra */
+  --shadow-base: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================
+  LAYOUT PRINCIPAL (BLOCK: agendamento)
+  ==========================================
+*/
+.agendamento__container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(--color-bg-light);
+  border-radius: 12px;
+  box-shadow: var(--shadow-base);
+}
+
+.agendamento__titulo {
+  text-align: center;
+  color: var(--color-brand-primary);
+  margin-bottom: 30px;
+  font-size: 2em;
+  font-weight: 700;
+  border-bottom: 3px solid var(--color-brand-secondary);
+  padding-bottom: 10px;
+}
+
+/* ==========================================
+  CARDS E CAMPOS DE FORMULÁRIO (ELEMENT: campo)
+  ==========================================
+*/
+.agendamento__campo-card {
+  background-color: var(--color-bg-card);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-base);
+  transition: box-shadow 0.3s ease;
+}
+
+.agendamento__campo-card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.agendamento__campo-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.agendamento__campo-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--color-border-line);
+  border-radius: 6px;
+  font-size: 16px;
+  color: var(--color-text-main);
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--color-bg-card);
+}
+
+.agendamento__campo-input:focus {
+  border-color: var(--color-brand-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+}
+
+.agendamento__campo-input:disabled {
+  background-color: var(--color-bg-light);
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ==========================================
+  HORÁRIOS (ELEMENT: horarios)
+  ==========================================
+*/
+.agendamento__horarios-section {
+  background-color: var(--color-bg-card);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-base);
+}
+
+.agendamento__horarios-titulo {
+  color: var(--color-brand-secondary);
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.agendamento__horarios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+}
+
+.agendamento__horario-btn {
+  padding: 10px 5px;
+  border: 1px solid var(--color-border-line);
+  border-radius: 6px;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-main);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.agendamento__horario-btn:hover:not(:disabled) {
+  background-color: #e6f0fa;
+  border-color: var(--color-brand-primary);
+  transform: translateY(-2px);
+}
+
+/* Modifier: horario-ativo */
+.agendamento__horario-btn--ativo {
+  background-color: var(--color-brand-primary) !important;
+  color: white !important;
+  border-color: var(--color-brand-primary) !important;
+  box-shadow: 0 2px 4px rgba(74, 144, 226, 0.4);
+}
+
+/* Modifier: horario-indisponivel */
+.agendamento__horario-btn--indisponivel {
+  background-color: #fcebeb;
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+  cursor: not-allowed;
+  opacity: 0.7;
+  text-decoration: line-through;
+}
+
+.agendamento__horario-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.agendamento__horarios-vazio {
+  text-align: center;
+  color: var(--color-text-subtle);
+  padding: 15px 0;
+  border-top: 1px dashed var(--color-border-line);
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* ==========================================
+  BOTÃO DE AÇÃO (ELEMENT: agendar-acao)
+  ==========================================
+*/
+.agendamento__agendar-acao {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.agendamento__agendar-btn {
+  width: 100%;
+  padding: 15px 25px;
+  background-color: var(--color-success);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-base);
+}
+
+.agendamento__agendar-btn:hover:not(:disabled) {
+  background-color: #43a047;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.agendamento__agendar-btn:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Modifier: agendar-loading */
+.agendamento__agendar-btn--loading {
+  background-color: var(--color-brand-secondary);
+  position: relative;
+}
+
+.agendamento__agendar-btn--loading::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  right: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ==========================================
+  MENSAGENS DE ERRO
+  ==========================================
+*/
+.agendamento__error-msg {
+  background-color: #fef4f3;
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ==========================================
+  MODAL GERAL (BLOCK: modal)
+  ==========================================
+*/
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal__container {
+  background-color: var(--color-bg-card);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 450px;
+  animation: modal-open 0.3s ease-out forwards;
+}
+
+@keyframes modal-open {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 25px;
+  border-bottom: 1px solid var(--color-border-line);
+}
+
+.modal__titulo {
+  margin: 0;
+  color: var(--color-text-main);
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.modal__close {
+  background: none;
+  border: none;
+  font-size: 1.7em;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-text-subtle);
+  transition: color 0.2s;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__close:hover {
+  color: var(--color-danger);
+}
+
+.modal__content {
+  padding: 25px;
+}
+
+/* ==========================================
+  RESUMO E AÇÕES DO MODAL (ELEMENT: resumo, actions)
+  ==========================================
+*/
+.modal__resumo-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 15px;
+  border: 2px solid #e1f5fe;
+  background-color: #f7faff;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.modal__resumo-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
+  color: var(--color-text-main);
+  line-height: 1.4;
+}
+
+.modal__resumo-item strong {
+  font-weight: 700;
+  color: var(--color-brand-primary);
+}
+
+.modal__actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.modal__btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Modifier: btn-cancelar */
+.modal__btn--cancelar {
+  background-color: var(--color-border-line);
+  color: var(--color-text-subtle);
+}
+
+.modal__btn--cancelar:hover {
+  background-color: #d1d9e6;
+  transform: translateY(-1px);
+}
+
+/* Modifier: btn-confirmar */
+.modal__btn--confirmar {
+  background-color: var(--color-brand-primary);
+  color: white;
+}
+
+.modal__btn--confirmar:hover {
+  background-color: #3b82c4;
+  transform: translateY(-1px);
+}
+
+/* ==========================================
+  MODAL DE SUCESSO (MODIFIER: success)
+  ==========================================
+*/
+.modal__container--success .modal__titulo {
+  color: var(--color-success);
+}
+
+.modal__container--success .modal__content p {
+  line-height: 1.6;
+  margin-bottom: 10px;
+  color: var(--color-text-main);
+}
+
+/* ==========================================
+  RESPONSIVIDADE
+  ==========================================
+*/
+@media (max-width: 700px) {
+  .agendamento__container {
+    margin: 20px 10px;
+    padding: 15px;
+  }
+
+  .agendamento__titulo {
+    font-size: 1.5em;
+  }
+
+  .agendamento__horarios-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .modal__overlay {
+    padding: 10px;
+  }
+
+  .modal__actions {
+    flex-direction: column;
+  }
+
+  .modal__btn--cancelar {
+    order: 2;
+  }
+
+  .agendamento__campo-card {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .agendamento__container {
+    margin: 10px 5px;
+    padding: 10px;
+  }
+
+  .agendamento__horarios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .modal__content {
+    padding: 15px;
+  }
+
+  .modal__header {
+    padding: 15px 20px;
+  }
+}

@@ -1,0 +1,296 @@
+/* ============================
+   Layout principal
+   ============================ */
+.detalhe-paciente-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* ============================
+   Cabeçalho de ações
+   ============================ */
+.detalhe-paciente-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Botão base */
+.btn {
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+/* Botão voltar */
+.btn-voltar {
+  background-color: transparent;
+  color: #004aad;
+  border: 1px solid #cbd5e1;
+}
+
+.btn-voltar:hover {
+  background-color: #f1f5f9;
+  transform: translateX(-2px);
+}
+
+/* Botão nova sessão */
+.btn-nova-sessao {
+  background: linear-gradient(90deg, #004aad, #0077ff);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 74, 173, 0.2);
+}
+
+.btn-nova-sessao:hover {
+  background: linear-gradient(90deg, #005be0, #3399ff);
+  transform: scale(1.05);
+}
+
+/* Botão editar */
+.btn-editar {
+  background: #fff8c5;
+  color: #1e293b;
+  border: 1px solid #facc15;
+}
+
+.btn-editar:hover {
+  background: #fef08a;
+}
+
+/* ============================
+   Conteúdo principal
+   ============================ */
+.detalhe-paciente-content {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 2rem;
+}
+
+/* ============================
+   Coluna esquerda - Detalhes
+   ============================ */
+.paciente-detalhes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card-detalhes {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card-detalhes:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+
+.card-detalhes h3 {
+  color: #004aad;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.4rem;
+}
+
+/* Grupo de detalhes */
+.detalhe-grupo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.detalhe-item label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 0.2rem;
+}
+
+.detalhe-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #1e293b;
+}
+
+.full-width-info {
+  font-style: italic;
+  color: #475569;
+}
+
+/* Estatísticas */
+.estatistica-item {
+  text-align: center;
+}
+
+.estatistica-item strong {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #004aad;
+}
+
+.estatistica-item small {
+  display: block;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.estatistica-item:last-child strong {
+  color: #059669;
+}
+
+/* ============================
+   Coluna direita - Sessões
+   ============================ */
+.paciente-sessoes h3 {
+  font-size: 1.4rem;
+  color: #004aad;
+  margin-bottom: 1rem;
+}
+
+.lista-sessoes {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sessao-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sessao-card:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Status cores */
+.sessao-card.status-pago {
+  border-left-color: #059669;
+}
+
+.sessao-card.status-pendente {
+  border-left-color: #f59e0b;
+}
+
+/* Informações da sessão */
+.sessao-info {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.4rem;
+}
+
+.sessao-meta {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.sessao-valor {
+  font-weight: 600;
+  color: #004aad;
+  font-size: 0.9rem;
+}
+
+/* Status badge */
+.sessao-status {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+}
+
+.sessao-card.status-pago .sessao-status {
+  background-color: #d1fae5;
+  color: #047857;
+}
+
+.sessao-card.status-pendente .sessao-status {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.sessao-resumo-anotacao {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+/* Estado vazio */
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  border: 2px dashed #e2e8f0;
+  border-radius: 12px;
+  background-color: #fff;
+  color: #64748b;
+}
+
+/* ============================
+   Responsividade
+   ============================ */
+@media (max-width: 1024px) {
+  .detalhe-paciente-content {
+    grid-template-columns: 1fr;
+  }
+
+  .detalhe-paciente-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .detalhe-paciente-container {
+    padding: 1rem;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .card-detalhes h3 {
+    font-size: 1.1rem;
+  }
+
+  .paciente-sessoes h3 {
+    font-size: 1.2rem;
+  }
+}

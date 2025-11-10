@@ -1,0 +1,253 @@
+/* src/assets/Dashboard.css - TEMA COBRE/DOURADO */
+
+/* Cores da Paleta Cobre/Dourado (Ajuste conforme necessário) */
+/* Estas são sugestões que se aproximam da sua logo */
+:root {
+    --color-dourado-claro: #E0B480; /* Um dourado mais suave */
+    --color-dourado-medio: #C28B47; /* Um dourado mais intenso */
+    --color-dourado-escuro: #A36B2F; /* Um dourado mais escuro/cobre */
+    --color-cinza-fundo: #F5F5F5; /* Para o fundo geral */
+    --color-cinza-claro: #E0E0E0; /* Para bordas sutis */
+    --color-texto-principal: #333333;
+    --color-texto-secundario: #666666;
+    --color-background-card: #FFFFFF;
+}
+
+
+.dashboard-container {
+    padding: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color:  linear-gradient(135deg, var(--color-text-dark) 100%, var(--color-secondary) 100%); /* Fundo geral mais suave */
+    min-height: 100vh; /* Para garantir que o fundo ocupe a tela toda */
+}
+
+.dashboard-container h2 {
+    color: var(--color-texto-principal);
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Grid de Estatísticas */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--color-background-card);
+    padding: 1rem;
+    border-radius: 12px;
+    width: 170px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra um pouco mais proeminente para elegância */
+    border: 1px solid var(--color-cinza-claro); /* Borda sutil */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px; /* Mais espesso para destaque */
+    /* Cores de gradiente serão definidas pelas classes específicas */
+}
+
+.stat-card:hover {
+    transform: translateY(-4px); /* Efeito de elevação mais suave */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra maior no hover */
+    border-color: var(--color-dourado-medio); /* Borda destaca no hover */
+}
+
+/* Cores dos cards - AGORA TODAS EM VARIAÇÕES DE COBRE/DOURADO */
+/* Usando gradientes para um efeito mais rico */
+.stat-card.primary::before { background: linear-gradient(135deg, #FFD700, #DAA520); } /* Dourado */
+.stat-card.success::before { background: linear-gradient(135deg, #B8860B, #A0522D); } /* Cobre/Bronze */
+.stat-card.warning::before { background: linear-gradient(135deg, #CD853F, #D2B48C); } /* Castanho claro/Areia */
+.stat-card.danger::before { background: linear-gradient(135deg, #A0522D, #8B4513); } /* Marrom avermelhado/Bronze escuro */
+.stat-card.info::before { background: linear-gradient(135deg, #BDB76B, #8B884E); } /* Verde oliva/Dourado esverdeado */
+.stat-card.sessao::before { background: linear-gradient(135deg, #D4AF37, #C38B2F); } /* Dourado escuro/Bronze */
+
+.stat-icon {
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    /* A cor de fundo e texto será definida pela classe do card */
+}
+
+/* Cores dos ÍCONES E FUNDOS (tons da paleta) */
+/* Os backgrounds são mais claros, e o texto é mais escuro da mesma paleta */
+.stat-card.primary .stat-icon { background: rgba(255, 215, 0, 0.1); color: #DAA520; } /* Dourado */
+.stat-card.success .stat-icon { background: rgba(184, 134, 11, 0.1); color: #A0522D; } /* Cobre/Bronze */
+.stat-card.warning .stat-icon { background: rgba(205, 133, 63, 0.1); color: #CD853F; } /* Castanho claro */
+.stat-card.danger .stat-icon { background: rgba(160, 82, 45, 0.1); color: #8B4513; } /* Marrom avermelhado */
+.stat-card.info .stat-icon { background: rgba(189, 183, 107, 0.1); color: #8B884E; } /* Verde oliva */
+.stat-card.sessao .stat-icon { background: rgba(212, 175, 55, 0.1); color: #C38B2F; } /* Dourado escuro */
+
+.stat-info {
+    flex: 1;
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-texto-principal); /* Usando variável de cor principal */
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    color: var(--color-texto-secundario); /* Usando variável de cor secundária */
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+/* =======================================
+    Layout das seções (Ações Rápidas - 100% Largura)
+    ======================================= */
+.dashboard-sections-row {
+    display: block; 
+    gap: 1.5rem; 
+    align-items: start;
+    margin-bottom: 2rem; 
+}
+
+.dashboard-section {
+    background: var(--color-background-card);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra consistente com os cards */
+    border: 1px solid var(--color-cinza-claro);
+    overflow: hidden;
+    width: 100%;
+}
+
+.dashboard-section h3 {
+    background: var(--color-cinza-fundo); /* Fundo do título mais claro */
+    padding: 1rem 1.5rem;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-texto-principal);
+    border-bottom: 1px solid var(--color-cinza-claro);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Ações Rápidas */
+.quick-actions {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 0.75rem;
+}
+
+.quick-action-btn {
+    flex: 1 1 200px;
+    padding: 1rem;
+    border: 1px solid var(--color-cinza-claro);
+    border-radius: 8px;
+    background: var(--color-background-card);
+    color: var(--color-texto-secundario);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: left;
+}
+
+.quick-action-btn:hover {
+    background: rgba(var(--color-dourado-claro), 0.1); /* Fundo levemente dourado no hover */
+    border-color: var(--color-dourado-medio); /* Borda dourada no hover */
+    color: var(--color-dourado-escuro); /* Texto dourado no hover */
+    transform: translateY(-2px);
+}
+
+/* Responsividade (Mantidas) */
+@media (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 1rem;
+    }
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    .stat-card {
+        padding: 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+    .stat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    .quick-action-btn {
+        flex: 1 1 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .dashboard-container h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Animações (Mantidas) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-card,
+.dashboard-section {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+.stat-card:nth-child(4) { animation-delay: 0.4s; }
+.stat-card:nth-child(5) { animation-delay: 0.5s; }
+.stat-card:nth-child(6) { animation-delay: 0.6s; }

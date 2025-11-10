@@ -1,0 +1,300 @@
+/* ==========================
+   🎨 Tema Global Luisa Nunes - Psicologia
+   ========================== */
+:root {
+    /* Cores de Identidade */
+    --color-primary: #B89E70;
+    --color-primary-dark: #A18C64;
+    --color-secondary: #9CA3AF;
+    --color-secondary-dark: #7A808A;
+    
+    /* Cores de Fundo e Texto */
+    --color-bg: #E7E7E7;
+    --color-card-bg: #ffffff;
+    --color-white: #ffffff;
+    --color-gray-light: #f3f4f6;
+    --color-gray: #9ca3af;
+    --color-text-dark: #353535;
+    --color-text-light: #6B6B6B;
+    
+    /* Cores de Feedback */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-danger: #ef4444;
+    --color-info: #3b82f6;
+    
+    /* Sombras e Bordas */
+    --shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-card: 0 6px 15px rgba(0, 0, 0, 0.2);
+    --radius: 14px;
+    --transition: all 0.3s ease;
+}
+
+/* ==========================
+   ⚙️ Base Global
+   ========================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-bg);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* ==========================
+   🏠 CONTAINER ESPECÍFICO DA TELA INICIAL
+   ========================== */
+.tela-inicial-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* ==========================
+   🎯 TELA INICIAL (Com Fundo de Marca)
+   ========================== */
+.tela-inicial {
+    width: 100%;
+    text-align: center;
+    padding: clamp(6rem, 10vw, 12rem) clamp(2rem, 5vw, 4rem) clamp(8rem, 10vw, 8rem);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    
+    /* Fundo com imagem da marca */
+    background: 
+        linear-gradient(
+            rgba(184, 158, 112, 0.1), 
+            rgba(156, 163, 175, 0.1)
+        ),
+        url('./Marca1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top 200%;
+    background-color: var(--color-primary-dark); /* Fallback */
+
+    color: var(--color-white);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Overlay para melhor contraste */
+.tela-inicial::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(161, 140, 100, 0.8) 0%,
+        rgba(124, 115, 100, 0.6) 100%
+    );
+    z-index: 1;
+}
+
+.tela-inicial > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Título da tela inicial */
+.tela-inicial-titulo {
+    color: var(--color-white);
+    font-size: clamp(2.2rem, 6vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+/* Container flexível para os botões */
+.tela-inicial-botoes {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Estilo dos Botões Elegantes */
+.tela-inicial-btn {
+    background-color: var(--color-white);
+    color: var(--color-text-dark);
+    padding: 18px 40px;
+    font-size: 1.1rem;
+    border: 2px solid var(--color-white);
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 200px;
+    justify-content: center;
+}
+
+.tela-inicial-btn:hover {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: var(--color-white);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.tela-inicial-btn:active {
+    transform: translateY(-1px);
+}
+
+/* ==========================
+   🏢 CONTAINER GENÉRICO PARA OUTRAS TELAS
+   ========================== */
+.container-generico {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* ==========================
+   🔙 Botão Voltar - Estilo Isolado
+   ========================== */
+.botao-voltar-global {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-white);
+    background-color: var(--color-primary-dark);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.botao-voltar-global:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.botao-voltar-global:active {
+    transform: translateY(0);
+}
+
+.botao-voltar-global:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ==========================
+   📱 Responsividade
+   ========================== */
+@media (max-width: 768px) {
+    .tela-inicial-container {
+        padding: 10px;
+    }
+    
+    .tela-inicial {
+        padding: clamp(4rem, 8vw, 6rem) 1.5rem;
+    }
+    
+    .tela-inicial-botoes {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .tela-inicial-btn {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .container-generico {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tela-inicial {
+        padding: 3rem 1rem;
+    }
+    
+    .tela-inicial-titulo {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .tela-inicial-btn {
+        padding: 16px 30px;
+        font-size: 1rem;
+    }
+
+    .container-generico {
+        padding: 10px;
+    }
+
+    .botao-voltar-global {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+}
+
+/* ==========================
+   ✨ Animações
+   ========================== */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(-20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.tela-inicial {
+    animation: fadeIn 0.6s ease;
+}
+
+/* ==========================
+   🎯 Estilos para Páginas de Erro/404
+   ========================== */
+.pagina-nao-encontrada {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.pagina-nao-encontrada h1 {
+    color: var(--color-primary-dark);
+    margin-bottom: 1rem;
+}
+
+.pagina-nao-encontrada p {
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+}

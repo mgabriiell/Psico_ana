@@ -1,0 +1,84 @@
+.relatorio-financeiro-container {
+    padding: 2rem 3rem;
+    background-color: #f9fafb;
+    min-height: 100vh;
+}
+
+.relatorio-financeiro-container h2 {
+    color: #007bff;
+    font-weight: 700;
+    border-bottom: 2px solid #e9ecef;
+    margin-bottom: 2rem;
+}
+
+/* === CARDS === */
+.financeiro-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.financeiro-card {
+    border-radius: 14px;
+    padding: 1.5rem;
+    color: #fff;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+.financeiro-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+.financeiro-card h4 { font-weight: 600; margin-bottom: 0.5rem; }
+.financeiro-card .valor { font-size: 2rem; font-weight: 800; margin: 0.3rem 0; }
+
+.card-receita { background: linear-gradient(135deg, #28a745, #218838); }
+.card-despesa { background: linear-gradient(135deg, #ffc107, #e0a800); color: #333; }
+.card-lucro { background: linear-gradient(135deg, #007bff, #0056b3); }
+.card-prejuizo { background: linear-gradient(135deg, #dc3545, #b02a37); }
+
+/* === GRÁFICOS === */
+.financeiro-graficos {
+    background: #fff;
+    border-radius: 14px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-top: 2.5rem;
+}
+
+.financeiro-graficos h3 {
+    color: #343a40;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px dashed #dee2e6;
+    padding-bottom: 0.5rem;
+}
+
+/* === LAYOUT DE GRÁFICOS === */
+.graficos-grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.grafico-item {
+    background: #fcfcfc;
+    border-radius: 10px;
+    padding: 1.2rem;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+.grafico-item:hover { transform: scale(1.01); }
+
+.grafico-item h4 {
+    text-align: center;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 900px) {
+    .graficos-grid-2-col { grid-template-columns: 1fr; }
+}

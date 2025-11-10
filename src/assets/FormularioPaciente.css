@@ -1,0 +1,309 @@
+/* ======================================= */
+/* ESTILOS GERAIS DO FORMULÁRIO DE PACIENTE (p- prefixo) */
+/* ======================================= */
+
+/* Container Principal */
+.p-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Cabeçalho */
+.p-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.p-header h2 {
+    font-size: 1.8rem;
+    color: #333333;
+    margin: 0;
+    flex-grow: 1; /* Permite que o título ocupe o espaço restante */
+    text-align: center;
+}
+
+/* Botão de Voltar */
+.p-btn-voltar {
+    background: none;
+    border: 1px solid #cccccc;
+    color: #555555;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+    margin-right: 20px;
+}
+
+.p-btn-voltar:hover {
+    background-color: #f0f0f0;
+    border-color: #aaaaaa;
+    color: #333333;
+}
+
+/* Formulário e Seções */
+.p-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.p-form-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+    background-color: #fafafa;
+}
+
+.p-form-section h3 {
+    color: #4a5568;
+    border-bottom: 2px solid #99c2ff;
+    padding-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+/* Layout de Grid para os Campos */
+.p-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Grupo de Campo Individual */
+.p-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para campos que devem ocupar toda a largura (como observações) */
+.p-full-width {
+    grid-column: 1 / -1;
+}
+
+/* Estilo do Label */
+.p-form-group label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 0.95rem;
+}
+
+/* Estilo dos Inputs e Selects */
+.p-form-group input,
+.p-form-group select,
+.p-form-group textarea {
+    padding: 10px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #333333;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-color: #ffffff;
+}
+
+.p-form-group input:focus,
+.p-form-group select:focus,
+.p-form-group textarea:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+    outline: none;
+}
+
+.p-form-group input[disabled],
+.p-form-group select[disabled],
+.p-form-group textarea[disabled] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+    color: #6c757d;
+}
+
+.p-form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Linha Separadora */
+hr {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 30px 0;
+}
+
+/* ======================================= */
+/* CHECKBOX (Socioeconômico) */
+/* ======================================= */
+
+/* Grupo específico para Checkbox */
+.p-checkbox-group {
+    grid-column: 1 / -1; /* Ocupa a linha toda no grid */
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    padding: 15px;
+    border: 1px solid #c8e6c9; /* Borda mais verde/suave */
+    border-radius: 8px;
+    background-color: #e6f4e6; /* Fundo suave */
+    box-shadow: 0 2px 4px rgba(0, 100, 0, 0.05);
+}
+
+.p-checkbox-group input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+    accent-color: #4caf50; /* Cor de destaque verde */
+}
+
+.p-checkbox-group .p-checkbox-label {
+    font-weight: 600;
+    color: #388e3c; /* Texto verde escuro */
+    margin: 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+/* ======================================= */
+/* Mensagens de Status */
+/* ======================================= */
+
+.p-error-message,
+.p-success-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.p-error-message {
+    background-color: #fde8e8;
+    color: #e53e3e;
+    border: 1px solid #e53e3e;
+}
+
+.p-success-message {
+    background-color: #e6fffa;
+    color: #38a169;
+    border: 1px solid #38a169;
+}
+
+/* ======================================= */
+/* Botões de Ação */
+/* ======================================= */
+
+.p-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 20px;
+}
+
+.p-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+.p-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.p-btn-limpar {
+    background-color: #f7fafc;
+    color: #4a5568;
+    border: 1px solid #cbd5e0;
+}
+
+.p-btn-limpar:not(:disabled):hover {
+    background-color: #edf2f7;
+}
+
+.p-btn-cancelar {
+    background-color: #e53e3e;
+    color: white;
+}
+
+.p-btn-cancelar:not(:disabled):hover {
+    background-color: #c53030;
+}
+
+.p-btn-confirmar {
+    background-color: #3b82f6;
+    color: white;
+    order: 3; /* Garante que o Confirmar seja o último, se a ordem for alterada */
+}
+
+.p-btn-confirmar:not(:disabled):hover {
+    background-color: #2563eb;
+}
+
+/* ======================================= */
+/* Responsividade */
+/* ======================================= */
+
+@media (max-width: 768px) {
+    .p-container {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .p-form-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+    
+    .p-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .p-header h2 {
+        text-align: left;
+        font-size: 1.6rem;
+        margin-top: 15px;
+    }
+
+    .p-btn-voltar {
+        margin-right: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .p-form-actions {
+        flex-direction: column-reverse; /* Reverte a ordem para Confirmar ficar no topo */
+        gap: 10px;
+    }
+
+    .p-btn {
+        width: 100%;
+    }
+    
+    .p-btn-confirmar {
+        order: 1; /* Coloca o confirmar em primeiro */
+    }
+
+    .p-btn-cancelar {
+        order: 2;
+    }
+
+    .p-btn-limpar {
+        order: 3;
+    }
+}

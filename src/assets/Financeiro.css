@@ -1,0 +1,236 @@
+/* ==================================== */
+/* Estilos para o componente ControleFinanceiro.jsx */
+/* ==================================== */
+
+.financeiro-container {
+    padding: 20px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.financeiro-container h2 {
+    color: #007bff;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+/* --- Estilo Geral do Card de Formulário --- */
+.card.form-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+}
+
+.card.form-card h3 {
+    color: #343a40;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+.despesa-form .form-group-inline > button {
+    grid-column: span 2; 
+}
+/* --- Layout do Formulário (Inline) --- */
+.despesa-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaçamento entre as linhas do formulário */
+}
+
+/* --- Novo CSS para a Tabela e Ações --- */
+
+/* Estilo para os indicadores de status (badges) */
+.status-badge {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-pago {
+    background-color: #d4edda; /* Verde claro */
+    color: #155724; /* Verde escuro */
+}
+
+.status-pendente {
+    background-color: #fce1e1; /* Vermelho claro */
+    color: #721c24; /* Vermelho escuro */
+}
+
+/* Botão de Ação (Marcar como Pago) */
+.btn-mudar-status {
+    background-color: #007bff; /* Azul */
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s;
+}
+
+.btn-mudar-status:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.btn-mudar-status:disabled {
+    background-color: #adb5bd;
+    cursor: not-allowed;
+}
+
+.text-success {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.form-group-inline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas para os campos de entrada/seleção */
+    gap: 15px;
+    align-items: center;
+}
+
+.despesa-form input[type="text"],
+.despesa-form input[type="number"],
+.despesa-form input[type="date"],
+.despesa-form select {
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    width: 100%; /* Garante que preencha a coluna do grid */
+}
+
+.despesa-form button.btn-primary {
+    padding: 10px 15px;
+    background-color: #28a745; /* Verde para ação de salvar/adicionar */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.despesa-form button.btn-primary:hover:not(:disabled) {
+    background-color: #1e7e34;
+}
+
+.despesa-form button:disabled {
+    background-color: #adb5bd;
+    cursor: not-allowed;
+}
+
+.error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+/* --- Lista de Despesas Registradas --- */
+
+.lista-despesas-container h3 {
+    color: #343a40;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.despesas-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden; /* Para garantir que o border-radius funcione na tabela */
+}
+
+.despesas-table thead tr {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.despesas-table th,
+.despesas-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.despesas-table th {
+    color: #495057;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.despesas-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.despesas-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.valor-despesa {
+    font-weight: 600;
+    color: #dc3545; /* Vermelho para despesas */
+    text-align: right !important;
+}
+
+/* Linha com Status Pendente */
+.despesa-pendente {
+    background-color: #fff3cd; /* Amarelo claro para destaque */
+}
+
+.despesa-pendente td {
+    color: #856404; /* Texto mais escuro para contraste */
+}
+
+.lista-vazia {
+    text-align: center;
+    padding: 30px;
+    color: #6c757d;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border: 1px dashed #ced4da;
+}
+
+/* --- Media Queries para responsividade --- */
+@media (max-width: 992px) {
+    .form-group-inline {
+        grid-template-columns: repeat(2, 1fr); /* Em telas menores, 2 colunas */
+    }
+    
+    .despesa-form button.btn-primary {
+        grid-column: span 2; /* O botão ocupa as duas colunas */
+    }
+}
+
+@media (max-width: 576px) {
+    .form-group-inline {
+        grid-template-columns: 1fr; /* Em telas muito pequenas, 1 coluna */
+    }
+
+    .despesa-form button.btn-primary {
+        grid-column: span 1;
+    }
+
+    .financeiro-container {
+        padding: 10px 15px;
+    }
+    
+    .despesas-table th,
+    .despesas-table td {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+}

@@ -1,0 +1,337 @@
+/* ==========================
+   🧠 SESSÃO - CSS ISOLADO E AMPLIADO
+   ========================== */
+
+.sessao-prontuario-container {
+  background: #ffffff;
+  padding: 3.5rem 4rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f1f5f9;
+  width: 95%;
+  max-width: 1400px;
+  margin: 2rem auto;
+  animation: sessaoSlideIn 0.4s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.sessao-prontuario-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #8B7355, #6B8E7E, #9F8170);
+  border-radius: 20px 20px 0 0;
+}
+
+/* Cabeçalho */
+.sessao-prontuario-titulo {
+  font-size: 2.2rem;
+  color: #2D3748;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f1f5f9;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #6B5A45, #557165);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Grade de formulário ampliada */
+.sessao-prontuario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.sessao-prontuario-campo {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.sessao-prontuario-label {
+  font-weight: 700;
+  color: #475569;
+  margin-bottom: 0.6rem;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.sessao-prontuario-input,
+.sessao-prontuario-textarea,
+.sessao-prontuario-select {
+  padding: 1.2rem 1.4rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  background: #ffffff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #2D3748;
+  font-family: inherit;
+}
+
+.sessao-prontuario-input:focus,
+.sessao-prontuario-textarea:focus,
+.sessao-prontuario-select:focus {
+  outline: none;
+  border-color: #8B7355;
+  box-shadow: 0 0 0 4px rgba(139, 115, 85, 0.15);
+  transform: translateY(-2px);
+  background: #fefefe;
+}
+
+.sessao-prontuario-input::placeholder,
+.sessao-prontuario-textarea::placeholder {
+  color: #94a3b8;
+  opacity: 0.8;
+}
+
+.sessao-prontuario-textarea {
+  resize: vertical;
+  min-height: 180px;
+  line-height: 1.6;
+}
+
+.sessao-prontuario-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23475569'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.2rem center;
+  background-size: 1.2rem;
+  padding-right: 3rem;
+}
+
+/* Campos de largura total */
+.sessao-prontuario-campo-full {
+  grid-column: 1 / -1;
+}
+
+/* Mensagens de erro */
+.sessao-prontuario-erro {
+  padding: 1.2rem 1.5rem;
+  background: #fef2f2;
+  border: 2px solid #fecaca;
+  color: #dc2626;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.sessao-prontuario-erro::before {
+  content: '⚠️';
+  font-size: 1.2rem;
+}
+
+/* Seção de botões */
+.sessao-prontuario-acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  padding-top: 2.5rem;
+  border-top: 2px solid #f1f5f9;
+  margin-top: 1.5rem;
+}
+
+.sessao-prontuario-btn {
+  padding: 1.2rem 2.5rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 160px;
+  text-align: center;
+  letter-spacing: -0.01em;
+  position: relative;
+  overflow: hidden;
+}
+
+.sessao-prontuario-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s;
+}
+
+.sessao-prontuario-btn:hover::before {
+  left: 100%;
+}
+
+.sessao-prontuario-btn-cancelar {
+  background: #f8fafc;
+  color: #475569;
+  border: 2px solid #e2e8f0;
+}
+
+.sessao-prontuario-btn-cancelar:hover:not(:disabled) {
+  background: #f1f5f9;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+
+.sessao-prontuario-btn-confirmar {
+  background: linear-gradient(135deg, #8B7355, #6B5A45);
+  color: white;
+  box-shadow: 0 6px 20px rgba(139, 115, 85, 0.3);
+}
+
+.sessao-prontuario-btn-confirmar:hover:not(:disabled) {
+  background: linear-gradient(135deg, #6B5A45, #8B7355);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(139, 115, 85, 0.4);
+}
+
+.sessao-prontuario-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Estados de loading */
+.sessao-prontuario-loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.sessao-prontuario-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: sessaoSpin 0.8s linear infinite;
+}
+
+/* Animações */
+@keyframes sessaoSlideIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px) scale(0.98);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes sessaoSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Efeitos de foco melhorados */
+.sessao-prontuario-campo:focus-within .sessao-prontuario-label {
+  color: #8B7355;
+  transform: translateX(4px);
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .sessao-prontuario-container {
+    padding: 3rem 3.5rem;
+    width: 92%;
+  }
+}
+
+@media (max-width: 768px) {
+  .sessao-prontuario-container {
+    padding: 2.5rem 2rem;
+    margin: 1.5rem auto;
+    width: 95%;
+    border-radius: 16px;
+  }
+
+  .sessao-prontuario-titulo {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .sessao-prontuario-grid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .sessao-prontuario-acoes {
+    flex-direction: column-reverse;
+    gap: 1rem;
+    padding-top: 2rem;
+  }
+
+  .sessao-prontuario-btn {
+    width: 100%;
+    min-width: auto;
+    padding: 1.1rem 2rem;
+  }
+
+  .sessao-prontuario-input,
+  .sessao-prontuario-textarea,
+  .sessao-prontuario-select {
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sessao-prontuario-container {
+    padding: 2rem 1.5rem;
+    margin: 1rem auto;
+    width: 98%;
+  }
+
+  .sessao-prontuario-titulo {
+    font-size: 1.6rem;
+  }
+
+  .sessao-prontuario-grid {
+    gap: 1.5rem;
+  }
+
+  .sessao-prontuario-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Estados especiais para campos obrigatórios */
+.sessao-prontuario-campo-required .sessao-prontuario-label::after {
+  content: ' *';
+  color: #dc2626;
+  font-weight: 700;
+}
+
+/* Estilo para quando o pagamento é "Pago" */
+.sessao-prontuario-pago .sessao-prontuario-input,
+.sessao-prontuario-pago .sessao-prontuario-select {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+.sessao-prontuario-pago .sessao-prontuario-label {
+  color: #059669;
+}
