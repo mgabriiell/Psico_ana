@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../../supabaseClient'; 
-import '../../assets/financeiro.css'; // O seu arquivo CSS
+import '../../assets/Financeiro.css'; // O seu arquivo CSS
 
 // Constantes para os valores fixos
 const NATUREZAS = ['Fixo', 'Variável'];
