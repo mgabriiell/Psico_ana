@@ -298,3 +298,7 @@ body {
     color: var(--color-text-light);
     margin-bottom: 2rem;
 }
+
+.no-underline {
+  text-decoration: none;
+}
