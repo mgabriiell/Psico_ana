@@ -49,12 +49,7 @@ function App() {
                 </div>
               ) : pagina === "cliente" ? (
                 <div className="container-generico">
-                  <button
-                    className="botao-voltar-global"
-                    onClick={() => setPagina("inicio")}
-                  >
-                    🔙 Voltar
-                  </button>
+                 
                   <Agendamento />
                 </div>
               ) : pagina === "login" ? (

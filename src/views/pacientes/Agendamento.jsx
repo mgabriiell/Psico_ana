@@ -4,10 +4,9 @@ import { supabase } from "../../supabaseClient";
 import "../../assets/Agendamento.css";
 
 const precosServico = {
-  "Consulta Inicial": 150,
-  "Acompanhamento Semanal": 120,
-  "Terapia de Casal": 200,
-  "Atendimento Emergencial": 180,
+  "Primeira Consulta": "Primeira Consulta",
+  "Avaliação": "Avaliação",
+  "Outro":"outro",
 };
 
 export default function Agendamento() {
@@ -152,7 +151,7 @@ export default function Agendamento() {
           email: emailCliente,
           telefone: telefoneCliente,
           servico: servico,
-          valor: precosServico[servico],
+          
           data: dataSelecionada,
           horario: horarioSelecionado,
           status: "ativo",
@@ -192,7 +191,7 @@ export default function Agendamento() {
         >
           {Object.keys(precosServico).map((s) => (
             <option key={s} value={s}>
-              {s} - R$ {precosServico[s]}
+              {s}
             </option>
           ))}
         </select>
@@ -270,7 +269,7 @@ export default function Agendamento() {
               className="agendamento__campo-input"
               value={telefoneCliente}
               onChange={(e) => setTelefoneCliente(e.target.value)}
-              placeholder="(11) 99999-9999"
+              placeholder="11999999999"
               disabled={loading}
             />
           </div>
@@ -366,9 +365,7 @@ export default function Agendamento() {
               <p>
                 <strong>Horário:</strong> {horarioSelecionado}
               </p>
-              <p>
-                <strong>Valor:</strong> R$ {precosServico[servico]}
-              </p>
+              
               <p style={{fontSize: '0.9em', color: 'var(--color-text-subtle)', marginTop: '15px'}}>
                 Você receberá um email de confirmação com os detalhes.
               </p>
