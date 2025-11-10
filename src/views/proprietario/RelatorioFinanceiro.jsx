@@ -3,7 +3,7 @@ import {
     BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
     ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line
 } from 'recharts';
-import '../../assets/Relatoriofinanceiro.css'; 
+import '../../assets/RelatorioFinanceiro.css'; 
 
 const formatarMoeda = (valor) =>
     new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valor || 0);
